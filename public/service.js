@@ -1,5 +1,5 @@
 // URL del endpoint de la API
-const apiURL = "http://process.env.DB_HOST:3000/games/";
+const apiURL = "http://localhost:3000/games/";
 
 // Elementos del DOM donde se mostrarán los juegos
 const pcGamesContainer = document.getElementById("pc-games");
@@ -104,7 +104,7 @@ document.getElementById("submitForm").addEventListener("click", function () {
   let form = document.getElementById("gameForm");
   let formData = new FormData(form);
 
-  fetch("http://process.env.DB_HOST:3000/games", {
+  fetch("http://localhost:3000/games", {
     method: "POST",
     body: formData,
   })
