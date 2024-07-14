@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'matute07',
-    database:'games_dt_wg'
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASS,
+    database:process.env.DB_NAME
 });
 
 connection.connect((err)=>{
@@ -14,15 +15,15 @@ connection.connect((err)=>{
     }
     console.log('conectado a la base de datos');
 
-    connection.query('create database if not exists games_dt_wg',(err,results)=>{
+    connection.query('create database if not exists matiaskpri_worldgames',(err,results)=>{
         if (err){
             console.error('error creating database:', err);
           return;
         }
         console.log('database ensured.');
-        connection.changeUser({database:'games_dt_wg'},(err)=>{
+        connection.changeUser({database:'matiaskpri_worldgames'},(err)=>{
             if (err){
-                console.error('error switching to games_dt_wg:', err);
+                console.error('error switching to matiaskpri_worldgames:', err);
                 return;
             }
             const createTableQuery = `
