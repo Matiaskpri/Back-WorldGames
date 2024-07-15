@@ -11,5 +11,5 @@ app.use('/auth', authRoutes);
 
 
 app.listen(port , ()=>{
-    console.log(`el servidor esta encendido en http://localhost${port}`);
+    console.log(`el servidor esta encendido en http://localhost:${port}`);
 });
